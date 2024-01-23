@@ -3,6 +3,9 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCROPTION } from "../constants";
 
+interface Props {
+  title?: string;
+}
 const { title } = Astro.props;
 ---
 

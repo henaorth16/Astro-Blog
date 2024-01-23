@@ -4,7 +4,7 @@ import SearchForm from "../components/SearchForm.astro";
 import { HOME_PAGE_ARTICLE_LIMIT } from "../constants";
 import ArticleCard from "../components/ArticleCard.astro";
 import { getCollection } from "astro:content";
-import type { CollectionEntry, CollectionKey } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import MostRecentArticle from "../components/MostRecentArticle.astro";
 
 const allBlogArticles: CollectionEntry<"blog">[] = (
