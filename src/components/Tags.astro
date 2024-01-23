@@ -1,6 +1,6 @@
 ---
 const {tags} = Astro.props;
-
+import { capitalize } from '../utils';
 interface Props {
     tags: string[];
 }
@@ -15,7 +15,7 @@ interface Props {
             : "px-2 py-1 bg-indigo-500 text-white rounded-full text-xs hover:opacity-90"
         }
       >
-        <a href={"/articles/tag/" + tag}>{tag}</a>
+        <a href={"/articles/tag/" + tag}>#{capitalize(tag)}</a>
       </span>
     ))}
   </div>

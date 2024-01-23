@@ -14,5 +14,6 @@ function capitalize(str: string): string {
 }
 
   export {
-    formatDate
+    formatDate,
+    capitalize
   }
