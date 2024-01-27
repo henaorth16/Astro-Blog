@@ -7,7 +7,7 @@ import SearchForm from "../../components/SearchForm.astro";
 import Pagination from "../../components/Pagination.astro";
 import { ARTICLES_PER_PAGE } from "../../constants";
 
-const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
+const currPage: number | null = +Astro.url.searchParams.get("page")! || 1;
 const allBlogArticles: CollectionEntry<"blog">[] = (
   await getCollection("blog")
 ).sort(
@@ -20,8 +20,8 @@ const totalPages: number = Math.ceil(
 );
 
 const articleForPage: CollectionEntry<"blog">[] = allBlogArticles.slice(
-  (currentPage - 1) * ARTICLES_PER_PAGE,
-  currentPage * ARTICLES_PER_PAGE
+  (currPage - 1) * ARTICLES_PER_PAGE,
+  currPage * ARTICLES_PER_PAGE
 );
 ---
 
@@ -33,6 +33,6 @@ const articleForPage: CollectionEntry<"blog">[] = allBlogArticles.slice(
     <!-- Article Card -->
     {articleForPage.map((article) => <ArticleCard article={article} />)}
   </div>
-  <Pagination currentPage={currentPage} totalPages={totalPages} disablePrevious={currentPage === 1} disableNext = {currentPage === totalPages}/>
+  <Pagination currPage={currPage} totalPages={totalPages} disablePrev={currPage === 1} disableNex = {currPage === totalPages}/>
 </MainLayout>
    
